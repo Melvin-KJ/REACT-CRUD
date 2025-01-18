@@ -20,7 +20,7 @@ function App() {
 
   //Fetch users from API
   useEffect(() => {
-    fetch('http://localhost:3001/users')
+    fetch('http://localhost:3000/users')
       .then((response) => response.json())
       .then((data) =>
         setUserdata(
@@ -44,7 +44,7 @@ function App() {
       return;
     }
     //add new user to the server
-    fetch('http://localhost:3001/users', {
+    fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ function App() {
   const updateUser = () => {
     // Update user on the server
 
-    fetch(`http://localhost:3001/users/${user.id}`, {
+    fetch(`http://localhost:3000/users/${user.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ function App() {
 
   const deleteUser = (index) => {
     const userId = userdata[index].id;
-    fetch(`http://localhost:3001/users/${userId}`, {
+    fetch(`http://localhost:3000/users/${userId}`, {
       method: 'DELETE',
     }).then(() => {
       setUserdata(userdata.filter((_, i) => i !== index));
